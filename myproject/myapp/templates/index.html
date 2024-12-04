@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE Calculator</title>
+    {% load static %}
+<link rel="icon" type="image/x-icon" href="{% static 'image/1.png' %}">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static.css' %}">
+</head>
+<body class="bg" style="background-image: url('/static/image/3.png');background-size: cover;">
+    
+    
+   
+    <form class="container" method="POST" > 
+        {% csrf_token %}
+        <h1 >Calculator App</h1>
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1" name="num1" required><br><br>
+        
+        
+        
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2" name="num2" required><br><br>
+
+
+
+        <label for="operator">Operator:</label>
+        <select name="operator" id="operator" required>
+            <option value="add">add</option>
+            <option value="sub">sub</option>
+            <option value="mul">mul</option>
+            <option value="div">div</option>
+        </select><br><br>
+        
+        <button type="submit">Calculate</button>
+                
+            {% if error_message %}
+                <script type="text/javascript">
+                    alert("{{ error_message }}");
+                </script>
+            {% endif %}
+    
+            
+        
+       
+    </form>
+        
+    
+       
+    
+</body>
+</html>
+
